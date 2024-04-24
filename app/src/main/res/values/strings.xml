@@ -1,0 +1,105 @@
+<resources>
+    <string name="app_name">AsoDesUnidos</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_username">Nombre de usuario</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Iniciar Sesión</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_customer">CustomerActivity</string>
+    <string name="action_close_app">Cerrar</string>
+    <string name="action_logout">Cerrar sesión</string>
+
+    <!-- Recursos de admin -->
+    <string name="admin">Administrador</string>
+    <string name="AsignarPrestamo">Asignar un préstamo</string>
+    <string name="action_CrearCliente">Agregar un nuevo cliente</string>
+
+    <string name="plazoPrestamo">Plazo del préstamo</string>
+    <string name="tipoPrestamo">Tipo del préstamo</string>
+    <string name="montoMensual">Monto mensual</string>
+
+    <string name="tresAnnos">Tres años</string>
+    <string name="cincoAnnos">5 años</string>
+    <string name="diezAnnos">10 años</string>
+
+
+    <string name="hipoteca">Hipotecario 7.5%</string>
+    <string name="educacion">Educación 8%</string>
+    <string name="personal">Personal 10%</string>
+    <string name="viajes">Viajes 12%</string>
+
+    <string name="calcular">CALCULAR</string>
+    <string name="agregarPrestamo">AGREGAR PRÉSTAMO</string>
+    <string name="cuota">Cuota</string>
+
+
+    <!-- Agregar un cliente-->
+    <string name="cedula">Número de cédula</string>
+    <string name="nombreCliente">Nombre</string>
+    <string name="salario">Salario mensual </string>
+    <string name="telefono">Número de teléfono</string>
+    <string name="fechaNacimiento">Fecha de nacimiento</string>
+    <string name="estadoCivil">Estado civil</string>
+    <string name="direccion">Dirección</string>
+    <string name="action_form_CrearCliente">Agregar cliente</string>
+    <string name="action_form_AgregandoCliente">Agregando nuevo cliente</string>
+
+
+    <!-- Agregar un prestamo a cliente-->
+
+    <string name="action_form_AgregandoPrestamo">Agregando préstamo al cliente</string>
+    <string name="action_form_BuscarCliente">Buscar</string>
+
+    <string name="action_form_SalarioMaximo">Monto máximo</string>
+
+    <string name="montoDeseado">Monto de préstamo</string>
+
+
+    <!-- Pantalla principal cliente-->
+
+    <string name="verPrestamos">Ver mis préstamos</string>
+    <string name="gestionarAhorros">Gestionar mis ahorros</string>
+    <string name="calcularCuota">Calcular cuota</string>
+    <string name="informacionPersonal">Información Personal</string>
+
+    <!-- Ver informacion cliente-->
+
+    <string name="action_actualizarCliente">Actualizar la información</string>
+
+
+    <string name="tittle_informacionPersonal">Información del cliente</string>
+
+
+    <!-- Ver informacion cliente Prestamos-->
+
+    <string name="tittle_Prestamos">Mis préstamos</string>
+
+
+    <!-- Calcular Cuota-->
+
+    <string name="tittle_CalcularCuota">Calcular cuota</string>
+
+
+    <!-- Ver informacion de prestamos-->
+
+    <string name="tittle_tipoPrestamo">Tipo de préstamo</string>
+    <string name="tittle_creditoTotal">Crédito total</string>
+    <string name="tittle_prestamos">Mis préstamos</string>
+    <string name="tittle_Periodo">Periodo</string>
+    <string name="tittle_Cuota">Cuota</string>
+    <string name="tittle_porcentaje">Interés</string>
+    <string name="pagar">Pagar</string>
+</resources>
