@@ -45,8 +45,6 @@ public class Login extends SuperActivity {
         database().getUserDAO().insert(user);
     }
 
-
-
     @Override
     protected Context context() { return Login.this; }
 

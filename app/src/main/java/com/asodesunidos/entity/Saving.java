@@ -1,54 +1,71 @@
-/*package com.asodesunidos.entity;
+package com.asodesunidos.entity;
 
-import androidx.room.Embedded;
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "savings")
+@Entity(tableName = "savings", foreignKeys = @ForeignKey(entity = User.class,
+        parentColumns = "uid",
+        childColumns = "customerId"))
 public class Saving {
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    @Embedded(prefix = "navideno_")
-    private SavingsType navideno;
-    @Embedded(prefix = "escolar_")
-    private SavingsType escolar;
-    @Embedded(prefix = "marchamo_")
-    private SavingsType marchamo;
-    @Embedded(prefix = "extraordinario_")
-    private SavingsType extraordinario;
+    @ColumnInfo(name = "savingId")
+    @NonNull
+    private int savingId; // 1
+    @ColumnInfo (name = "typeSaving")
+    @NonNull
+    private String typeSaving; // navideno, marchamo
 
-    public Saving(SavingsType navideno, SavingsType escolar, SavingsType marchamo, SavingsType extraordinario) {
-        this.navideno = navideno;
-        this.escolar = escolar;
-        this.marchamo = marchamo;
-        this.extraordinario = extraordinario;
+    @ColumnInfo (name = "customerId")
+    @NonNull
+    private int customerId; //
+    @ColumnInfo (name = "mount")
+    @NonNull
+    private double mount;
+
+    public Saving(int savingId, @NonNull String typeSaving, int customerId, double mount) {
+        this.savingId = savingId;
+        this.typeSaving = typeSaving;
+        this.customerId = customerId;
+        this.mount = mount;
     }
 
+    public Saving() {
 
-    public void setId(int id) {
-        this.id = id;
     }
 
-    public int getId() {
-        return id;
+    public int getSavingId() {
+        return savingId;
     }
 
-    public SavingsType getNavideno() {
-        return navideno;
+    public void setSavingId(int savingId) {
+        this.savingId = savingId;
     }
 
-    public SavingsType getEscolar() {
-        return escolar;
+    @NonNull
+    public String getTypeSaving() {
+        return typeSaving;
     }
 
-    public SavingsType getMarchamo() {
-        return marchamo;
+    public void setTypeSaving(@NonNull String typeSaving) {
+        this.typeSaving = typeSaving;
     }
 
-    public SavingsType getExtraordinario() {
-        return extraordinario;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    // ... setters for each type of savings
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public double getMount() {
+        return mount;
+    }
+
+    public void setMount(double mount) {
+        this.mount = mount;
+    }
 }
-*/

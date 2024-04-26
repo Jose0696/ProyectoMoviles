@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_200"
+    tools:context=".activity.CustomerSavings">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- Ahorro Navideño -->
+        <TextView
+            android:id="@+id/navidenoTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ahorro Navideño: Cuota 0"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/montoNavidenoEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/navidenoTextView"
+            android:hint="Ingrese el monto mensual para Ahorro Navideño"
+            android:inputType="number"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/activarNavidenoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/montoNavidenoEditText"
+            android:layout_centerHorizontal="true"
+            android:text="Activar Ahorro Navideño"
+            android:layout_marginTop="16dp" />
+
+        <!-- Ahorro Escolar -->
+        <TextView
+            android:id="@+id/escolarTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activarNavidenoButton"
+            android:text="Ahorro Escolar: Cuota 0"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/montoEscolarEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/escolarTextView"
+            android:hint="Ingrese el monto mensual para Ahorro Escolar"
+            android:inputType="number"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/activarEscolarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/montoEscolarEditText"
+            android:layout_centerHorizontal="true"
+            android:text="Activar Ahorro Escolar"
+            android:layout_marginTop="16dp" />
+
+        <!-- Ahorro Marchamo -->
+        <TextView
+            android:id="@+id/marchamoTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activarEscolarButton"
+            android:text="Ahorro Marchamo: Cuota 0"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/montoMarchamoEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/marchamoTextView"
+            android:hint="Ingrese el monto mensual para Ahorro Marchamo"
+            android:inputType="number"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/activarMarchamoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/montoMarchamoEditText"
+            android:layout_centerHorizontal="true"
+            android:text="Activar Ahorro Marchamo"
+            android:layout_marginTop="16dp" />
+
+        <!-- Ahorro Extraordinario -->
+        <TextView
+            android:id="@+id/extraordinarioTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activarMarchamoButton"
+            android:text="Ahorro Extraordinario: Cuota 0"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/montoExtraordinarioEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/extraordinarioTextView"
+            android:hint="Ingrese el monto mensual para Ahorro Extraordinario"
+            android:inputType="number"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/activarExtraordinarioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/montoExtraordinarioEditText"
+            android:layout_centerHorizontal="true"
+            android:text="Activar Ahorro Extraordinario"
+            android:layout_marginTop="16dp" />
+
+        <!-- Botón Guardar -->
+        <Button
+            android:id="@+id/guardarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activarExtraordinarioButton"
+            android:layout_centerHorizontal="true"
+            android:text="Guardar"
+            android:layout_marginTop="24dp" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
