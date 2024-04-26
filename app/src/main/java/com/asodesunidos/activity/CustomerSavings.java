@@ -20,13 +20,13 @@ import java.util.stream.Collectors;
 public class CustomerSavings extends SuperActivity {
     int userId;
     TextView textChrist, textScholar, textMark, textExtraordinary;
-    Button savingChrist, savingScholar, savingMark, savingExtraordinary, saveSaving;
+    Button savingChrist, savingScholar, savingMark, savingExtraordinary;
     EditText edChrist, edScholar, edMark, edExtraordinary;
 
     private int montoNavideno;
-    private int montoEscolar = 0;
-    private int montoMarchamo = 0;
-    private int montoExtraordinario = 0;
+    private int montoEscolar;
+    private int montoMarchamo;
+    private int montoExtraordinario;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_savings);
@@ -47,7 +47,6 @@ public class CustomerSavings extends SuperActivity {
         savingScholar = findViewById(R.id.activarEscolarButton);
         savingMark = findViewById(R.id.activarMarchamoButton);
         savingExtraordinary = findViewById(R.id.activarExtraordinarioButton);
-        saveSaving = findViewById(R.id.guardarButton);
 
         userId = getIntent().getIntExtra("idCustomer",0);
         savingChrist.setOnClickListener(new View.OnClickListener() {
@@ -171,6 +170,6 @@ public class CustomerSavings extends SuperActivity {
             e.printStackTrace();
         }
     }
-    
+
 }
 

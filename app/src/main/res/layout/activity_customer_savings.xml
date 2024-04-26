@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/navidenoTextView"
-            android:hint="Ingrese el monto mensual para Ahorro Navideño"
+            android:hint="Ingrese el monto para Ahorro Navideño"
             android:inputType="number"
             android:layout_marginTop="16dp" />
 
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/montoNavidenoEditText"
             android:layout_centerHorizontal="true"
-            android:text="Activar Ahorro Navideño"
+            android:text="Guardar Ahorro Navideño"
             android:layout_marginTop="16dp" />
 
         <!-- Ahorro Escolar -->
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/escolarTextView"
-            android:hint="Ingrese el monto mensual para Ahorro Escolar"
+            android:hint="Ingrese el monto para Ahorro Escolar"
             android:inputType="number"
             android:layout_marginTop="16dp" />
 
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/montoEscolarEditText"
             android:layout_centerHorizontal="true"
-            android:text="Activar Ahorro Escolar"
+            android:text="Guardar Ahorro Escolar"
             android:layout_marginTop="16dp" />
 
         <!-- Ahorro Marchamo -->
@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/marchamoTextView"
-            android:hint="Ingrese el monto mensual para Ahorro Marchamo"
+            android:hint="Ingrese el monto para Ahorro Marchamo"
             android:inputType="number"
             android:layout_marginTop="16dp" />
 
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/montoMarchamoEditText"
             android:layout_centerHorizontal="true"
-            android:text="Activar Ahorro Marchamo"
+            android:text="Guardar Ahorro Marchamo"
             android:layout_marginTop="16dp" />
 
         <!-- Ahorro Extraordinario -->
@@ -110,7 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/extraordinarioTextView"
-            android:hint="Ingrese el monto mensual para Ahorro Extraordinario"
+            android:hint="Ingrese el monto para Ahorro Extraordinario"
             android:inputType="number"
             android:layout_marginTop="16dp" />
 
@@ -120,18 +120,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/montoExtraordinarioEditText"
             android:layout_centerHorizontal="true"
-            android:text="Activar Ahorro Extraordinario"
+            android:text="Guardar Ahorro Extraordinario"
             android:layout_marginTop="16dp" />
 
-        <!-- Botón Guardar -->
-        <Button
-            android:id="@+id/guardarButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/activarExtraordinarioButton"
-            android:layout_centerHorizontal="true"
-            android:text="Guardar"
-            android:layout_marginTop="24dp" />
 
     </RelativeLayout>
 
