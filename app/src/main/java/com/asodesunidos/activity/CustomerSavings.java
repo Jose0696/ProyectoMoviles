@@ -15,6 +15,7 @@ import com.asodesunidos.entity.Saving;
 import com.asodesunidos.tag.SavingType;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class CustomerSavings extends SuperActivity {
@@ -55,7 +56,7 @@ public class CustomerSavings extends SuperActivity {
                 edChrist = findViewById(R.id.montoNavidenoEditText);
                 montoNavideno = Integer.parseInt(edChrist.getText().toString());
 
-                saveSaving("navidenno",montoNavideno,SavingType.NAVIDENO, 1);
+                saveSaving("navidenno",montoNavideno,SavingType.NAVIDENO, generateRandomID());
             }
         });
 
@@ -65,7 +66,7 @@ public class CustomerSavings extends SuperActivity {
                 edScholar = findViewById(R.id.montoEscolarEditText);
                 montoEscolar = Integer.parseInt(edScholar.getText().toString());
 
-                saveSaving("escolar",montoEscolar,SavingType.ESCOLAR,2);
+                saveSaving("escolar",montoEscolar,SavingType.ESCOLAR,generateRandomID());
 
             }
         });
@@ -76,7 +77,7 @@ public class CustomerSavings extends SuperActivity {
                 edMark = findViewById(R.id.montoMarchamoEditText);
                 montoMarchamo = Integer.parseInt(edMark.getText().toString());
 
-                saveSaving("marchamo",montoMarchamo,SavingType.MARCHAMO,3);
+                saveSaving("marchamo",montoMarchamo,SavingType.MARCHAMO,generateRandomID());
             }
         });
 
@@ -86,7 +87,7 @@ public class CustomerSavings extends SuperActivity {
                 edExtraordinary = findViewById(R.id.montoExtraordinarioEditText);
                 montoExtraordinario = Integer.parseInt(edExtraordinary.getText().toString());
 
-                saveSaving("extraordinario",montoExtraordinario,SavingType.EXTRAORDINARIO,4);
+                saveSaving("extraordinario",montoExtraordinario,SavingType.EXTRAORDINARIO,generateRandomID());
             }
         });
     }
@@ -94,6 +95,12 @@ public class CustomerSavings extends SuperActivity {
         return CustomerSavings.this;
     }
 
+    public int generateRandomID() {
+        UUID uuid = UUID.randomUUID();
+        long mostSignificantBits = uuid.getMostSignificantBits();
+        int randomID = (int) mostSignificantBits;
+        return randomID;
+    }
     private void showCouta(SavingType typeSaving){
         EditText editText = null;
         TextView textView = null;
@@ -149,6 +156,7 @@ public class CustomerSavings extends SuperActivity {
 
     private void saveSaving(String savingType, double amount, SavingType typesave, int id) {
         try {
+
             List<Saving> savings = database().getSavingDAO().findAll().stream().filter(e ->
                     e.getTypeSaving().equals(savingType) && e.getCustomerId() == userId).collect(Collectors.toList());
 
