@@ -1,11 +1,9 @@
 package com.asodesunidos.dao;
 
 import androidx.room.Dao;
-import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.asodesunidos.entity.Customer;
-import com.asodesunidos.entity.User;
 
 import java.util.List;
 

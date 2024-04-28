@@ -13,6 +13,7 @@ import com.asodesunidos.entity.Saving;
 
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -29,7 +30,7 @@ public class CustomerSavings extends SuperActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_savings);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         textChrist = findViewById(R.id.navidenoTextView);
@@ -53,34 +54,63 @@ public class CustomerSavings extends SuperActivity {
 
 
         savingChrist.setOnClickListener(v -> {
-            edChrist = findViewById(R.id.montoNavidenoEditText);
-            montoNavideno = Integer.parseInt(edChrist.getText().toString());
+            try {
+                edChrist = findViewById(R.id.montoNavidenoEditText);
+                montoNavideno = Integer.parseInt(edChrist.getText().toString());
 
-            saveSaving("navidenno",montoNavideno, generateRandomID());
-
-
+                if (montoNavideno < 5000) {
+                    showToast("El monto mínimo para Navideño es de 5000");
+                } else {
+                    saveSaving("navidenno", montoNavideno, generateRandomID());
+                }
+            }catch (Exception exception) {
+                showToast("Campo vacío");
+            }
         });
 
         savingScholar.setOnClickListener(v -> {
-            edScholar = findViewById(R.id.montoEscolarEditText);
-            montoEscolar = Integer.parseInt(edScholar.getText().toString());
+            try {
+                edScholar = findViewById(R.id.montoEscolarEditText);
+                montoEscolar = Integer.parseInt(edScholar.getText().toString());
 
-            saveSaving("escolar",montoEscolar,generateRandomID());
-
+                if (montoEscolar < 5000) {
+                    showToast("El monto mínimo para Escolar es de 5000");
+                } else {
+                    saveSaving("escolar", montoEscolar, generateRandomID());
+                }
+            }catch (Exception exception) {
+                showToast("Campo vacío");
+            }
         });
 
         savingMark.setOnClickListener(v -> {
-            edMark = findViewById(R.id.montoMarchamoEditText);
-            montoMarchamo = Integer.parseInt(edMark.getText().toString());
+            try {
+                edMark = findViewById(R.id.montoMarchamoEditText);
+                montoMarchamo = Integer.parseInt(edMark.getText().toString());
 
-            saveSaving("marchamo",montoMarchamo,generateRandomID());
+                if (montoMarchamo < 5000) {
+                    showToast("El monto mínimo para Marchamo es de 5000");
+                } else {
+                    saveSaving("marchamo", montoMarchamo, generateRandomID());
+                }
+            }catch (Exception exception) {
+                showToast("Campo vacío");
+            }
         });
 
         savingExtraordinary.setOnClickListener(v -> {
-            edExtraordinary = findViewById(R.id.montoExtraordinarioEditText);
-            montoExtraordinario = Integer.parseInt(edExtraordinary.getText().toString());
+            try {
+                edExtraordinary = findViewById(R.id.montoExtraordinarioEditText);
+                montoExtraordinario = Integer.parseInt(edExtraordinary.getText().toString());
 
-            saveSaving("extraordinario",montoExtraordinario,generateRandomID());
+                if (montoExtraordinario < 5000) {
+                    showToast("El monto mínimo para Extraordinario es de 5000");
+                } else {
+                    saveSaving("extraordinario", montoExtraordinario, generateRandomID());
+                }
+            }catch (Exception exception) {
+                showToast("Campo vacío");
+            }
         });
 
 
@@ -92,11 +122,8 @@ public class CustomerSavings extends SuperActivity {
     public int generateRandomID() {
         UUID uuid = UUID.randomUUID();
         long mostSignificantBits = uuid.getMostSignificantBits();
-        int randomID = (int) mostSignificantBits;
-        return randomID;
+        return (int) mostSignificantBits;
     }
-
-
 
 
     private void saveSaving(String savingType, double amount, int id) {
@@ -126,28 +153,34 @@ public class CustomerSavings extends SuperActivity {
     }
 
 
-    private void displaySavings ( TextView textChrist, TextView textScholar,  TextView textMark, TextView textExtraordinary){
-        List<Saving> savings = database().getSavingDAO().findAll().stream().filter(e ->
-                e.getCustomerId() == userId).collect(Collectors.toList());
-        if(savings.stream().anyMatch(e -> e.getTypeSaving().equals("navidenno")) ) {
-            Saving saving1 = savings.stream().filter( e -> e.getTypeSaving().equals("navidenno")).findFirst().get();
-            textChrist.setText(String.valueOf(saving1.getMount()));
-        }
-        if(savings.stream().anyMatch(e -> e.getTypeSaving().equals("escolar")) ) {
-            Saving saving1 = savings.stream().filter( e -> e.getTypeSaving().equals("escolar")).findFirst().get();
-            textScholar.setText(String.valueOf(saving1.getMount()));
+    private void displaySavings(TextView textChrist, TextView textScholar, TextView textMark, TextView textExtraordinary) {
+        List<Saving> savings = database().getSavingDAO().findAll().stream()
+                .filter(e -> e.getCustomerId() == userId)
+                .collect(Collectors.toList());
+
+        SavingsFilter savingsFilter = new SavingsFilter();
+        savings.stream().filter(savingsFilter::isChristmas).findFirst().ifPresent(saving -> textChrist.setText(String.valueOf(saving.getMount())));
+        savings.stream().filter(savingsFilter::isScholar).findFirst().ifPresent(saving -> textScholar.setText(String.valueOf(saving.getMount())));
+        savings.stream().filter(savingsFilter::isMarchamo).findFirst().ifPresent(saving -> textMark.setText(String.valueOf(saving.getMount())));
+        savings.stream().filter(savingsFilter::isExtraordinary).findFirst().ifPresent(saving -> textExtraordinary.setText(String.valueOf(saving.getMount())));
+    }
+
+    static class SavingsFilter {
+        public boolean isChristmas(Saving saving) {
+            return saving.getTypeSaving().equals("navidenno");
         }
 
-        if(savings.stream().anyMatch(e -> e.getTypeSaving().equals("marchamo")) ) {
-            Saving saving1 = savings.stream().filter( e -> e.getTypeSaving().equals("marchamo")).findFirst().get();
-            textMark.setText(String.valueOf(saving1.getMount()));
-        }
-        if(savings.stream().anyMatch(e -> e.getTypeSaving().equals("extraordinario")) ) {
-            Saving saving1 = savings.stream().filter( e -> e.getTypeSaving().equals("extraordinario")).findFirst().get();
-            textExtraordinary.setText(String.valueOf(saving1.getMount()));
+        public boolean isScholar(Saving saving) {
+            return saving.getTypeSaving().equals("escolar");
         }
 
+        public boolean isMarchamo(Saving saving) {
+            return saving.getTypeSaving().equals("marchamo");
+        }
+
+        public boolean isExtraordinary(Saving saving) {
+            return saving.getTypeSaving().equals("extraordinario");
+        }
     }
 
 }
-

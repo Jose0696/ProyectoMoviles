@@ -10,10 +10,11 @@
     <EditText
         android:id="@+id/montoDeseado"
         android:layout_width="182dp"
-        android:layout_height="42dp"
+        android:layout_height="48dp"
         android:layout_marginStart="14dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="17dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/montoDeseado"
         android:inputType="numberDecimal"
@@ -51,9 +52,10 @@
     <EditText
         android:id="@+id/idCard"
         android:layout_width="195dp"
-        android:layout_height="44dp"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/cedula"
         android:inputType="numberSigned"
@@ -68,6 +70,7 @@
         android:layout_marginTop="20dp"
         android:focusable="false"
         android:text="@string/salario"
+        android:textColor="#006064"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customerName" />
 
@@ -79,6 +82,7 @@
         android:layout_marginTop="84dp"
         android:focusable="false"
         android:text="@string/action_form_SalarioMaximo"
+        android:textColor="#006064"
         app:layout_constraintStart_toEndOf="@+id/customerSalary"
         app:layout_constraintTop_toBottomOf="@+id/idCard" />
 
@@ -90,13 +94,14 @@
         android:layout_marginTop="32dp"
         android:focusable="false"
         android:text="@string/nombreCliente"
+        android:textColor="#006064"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idCard" />
 
     <Button
         android:id="@+id/searchIdCard"
         android:layout_width="132dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="4dp"
         android:onClick="searchUser"
@@ -111,8 +116,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="92dp"
         android:text="@string/plazoPrestamo"
+        android:textColor="#006064"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customerSalary" />
+        app:layout_constraintTop_toBottomOf="@+id/customerSalary"
+        tools:ignore="TextSizeCheck" />
 
     <TextView
         android:id="@+id/tipoPrestamoTxtCuota"
@@ -121,8 +128,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="168dp"
         android:text="@string/tipoPrestamo"
+        android:textColor="#006064"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customerSalary" />
+        app:layout_constraintTop_toBottomOf="@+id/customerSalary"
+        tools:ignore="TextSizeCheck" />
 
     <Spinner
         android:id="@+id/plazosSpinner"

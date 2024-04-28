@@ -3,7 +3,6 @@ package com.asodesunidos.activity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.widget.Button;
 
 import com.asodesunidos.R;
 

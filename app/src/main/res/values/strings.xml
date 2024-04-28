@@ -102,4 +102,16 @@
     <string name="tittle_Cuota">Cuota</string>
     <string name="tittle_porcentaje">Interés</string>
     <string name="pagar">Pagar</string>
+    <string name="guardar_ahorro_escolar">Guardar Ahorro Escolar</string>
+    <string name="guardar_ahorro_extraordinario">Guardar Ahorro Extraordinario</string>
+    <string name="guardar_ahorro_marchamo">Guardar Ahorro Marchamo</string>
+    <string name="guardar_ahorro_navide_o">Guardar Ahorro Navideño</string>
+    <string name="ahorro_escolar_cuota_0">Ahorro Escolar: Cuota 0</string>
+    <string name="ahorro_extraordinario_cuota_0">Ahorro Extraordinario: Cuota 0</string>
+    <string name="ahorro_marchamo_cuota_0">Ahorro Marchamo: Cuota 0</string>
+    <string name="ingrese_el_monto_para_ahorro_escolar">Ingrese el monto para Ahorro Escolar</string>
+    <string name="ingrese_el_monto_para_ahorro_extraordinario">Ingrese el monto para Ahorro Extraordinario</string>
+    <string name="ingrese_el_monto_para_ahorro_marchamo">Ingrese el monto para Ahorro Marchamo</string>
+    <string name="ingrese_el_monto_para_ahorro_navide_o">Ingrese el monto para Ahorro Navideño</string>
+    <string name="ahorro_navide_o_cuota_0">Ahorro Navideño: Cuota 0</string>
 </resources>

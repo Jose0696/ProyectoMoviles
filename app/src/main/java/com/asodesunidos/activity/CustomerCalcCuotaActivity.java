@@ -1,7 +1,5 @@
 package com.asodesunidos.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
@@ -12,7 +10,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.asodesunidos.R;
-import com.asodesunidos.entity.Loan;
 
 public class CustomerCalcCuotaActivity extends SuperActivity {
 

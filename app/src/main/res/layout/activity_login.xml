@@ -25,17 +25,19 @@
             android:hint="@string/prompt_username"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-             />
+            android:textColorHint="#004D40"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/passwordTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/prompt_password"
             android:inputType="textPassword"
             android:minHeight="48dp"
-             />
+            android:textColorHint="#1B5E20" />
 
         <Button
             android:id="@+id/loginBtn"

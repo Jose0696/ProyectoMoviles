@@ -1,7 +1,5 @@
 package com.asodesunidos.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -10,14 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.asodesunidos.R;
 import com.asodesunidos.entity.Customer;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 public class CustomerInformationActivity extends SuperActivity {
 

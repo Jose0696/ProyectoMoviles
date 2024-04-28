@@ -8,11 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.room.Room;
-
 import com.asodesunidos.R;
-import com.asodesunidos.config.DatabaseConfig;
-//import com.asodesunidos.dao.SavingDAO;
 import com.asodesunidos.entity.Customer;
 import com.asodesunidos.entity.User;
 

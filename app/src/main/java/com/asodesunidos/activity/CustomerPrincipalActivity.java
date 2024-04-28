@@ -1,7 +1,5 @@
 package com.asodesunidos.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +8,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.asodesunidos.R;
-import com.asodesunidos.entity.Customer;
 import com.asodesunidos.entity.Loan;
 
 import java.util.List;

@@ -33,19 +33,24 @@
             android:id="@+id/nameTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/nombreCliente"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/idCardTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:editable="true"
             android:ems="10"
             android:focusable="false"
             android:hint="@string/cedula"
-            android:inputType="numberSigned|number" />
+            android:inputType="numberSigned|number"
+            android:minHeight="48dp"
+            tools:ignore="Deprecated" />
 
         <EditText
             android:id="@+id/dateTxt"
@@ -57,7 +62,9 @@
             android:focusable="false"
             android:focusableInTouchMode="false"
             android:hint="@string/fechaNacimiento"
-            android:inputType="date" />
+            android:inputType="date"
+            android:minHeight="48dp"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/phoneTxt"
@@ -65,7 +72,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/telefono"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:minHeight="48dp"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/salaryTxt"
@@ -73,7 +82,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/salario"
-            android:inputType="numberSigned|number|numberDecimal" />
+            android:inputType="numberSigned|number|numberDecimal"
+            android:minHeight="48dp"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/civilStateTxt"
@@ -81,7 +92,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/estadoCivil"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/addressTxt"
@@ -89,7 +102,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/direccion"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/buttonUpdateCustomer"
