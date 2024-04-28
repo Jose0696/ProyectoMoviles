@@ -50,6 +50,10 @@ public class CustomerSavings extends SuperActivity {
         savingExtraordinary = findViewById(R.id.activarExtraordinarioButton);
 
         userId = getIntent().getIntExtra("idCustomer",0);
+
+        displaySavings (textChrist,  textScholar,   textMark, textExtraordinary);
+
+
         savingChrist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +61,8 @@ public class CustomerSavings extends SuperActivity {
                 montoNavideno = Integer.parseInt(edChrist.getText().toString());
 
                 saveSaving("navidenno",montoNavideno,SavingType.NAVIDENO, generateRandomID());
+
+
             }
         });
 
@@ -90,6 +96,8 @@ public class CustomerSavings extends SuperActivity {
                 saveSaving("extraordinario",montoExtraordinario,SavingType.EXTRAORDINARIO,generateRandomID());
             }
         });
+
+
     }
     protected Context context() {
         return CustomerSavings.this;
@@ -154,6 +162,7 @@ public class CustomerSavings extends SuperActivity {
     }
 
 
+
     private void saveSaving(String savingType, double amount, SavingType typesave, int id) {
         try {
 
@@ -167,7 +176,8 @@ public class CustomerSavings extends SuperActivity {
                 current.setMount(current.getMount() + amount);
                 database().getSavingDAO().update(current);
             }
-            showCouta(typesave);
+            displaySavings( textChrist, textScholar,  textMark, textExtraordinary);
+           // showCouta(typesave);
         } catch (NumberFormatException e) {
 
             e.printStackTrace();
@@ -177,6 +187,30 @@ public class CustomerSavings extends SuperActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    private void displaySavings ( TextView textChrist, TextView textScholar,  TextView textMark, TextView textExtraordinary){
+        List<Saving> savings = database().getSavingDAO().findAll().stream().filter(e ->
+                e.getCustomerId() == userId).collect(Collectors.toList());
+        if(savings.stream().anyMatch(e -> e.getTypeSaving().equals("navidenno")) ) {
+            Saving saving1 = savings.stream().filter( e -> e.getTypeSaving().equals("navidenno")).findFirst().get();
+            textChrist.setText(String.valueOf(saving1.getMount()));
+        }
+        if(savings.stream().anyMatch(e -> e.getTypeSaving().equals("escolar")) ) {
+            Saving saving1 = savings.stream().filter( e -> e.getTypeSaving().equals("escolar")).findFirst().get();
+            textScholar.setText(String.valueOf(saving1.getMount()));
+        }
+
+        if(savings.stream().anyMatch(e -> e.getTypeSaving().equals("marchamo")) ) {
+            Saving saving1 = savings.stream().filter( e -> e.getTypeSaving().equals("marchamo")).findFirst().get();
+            textMark.setText(String.valueOf(saving1.getMount()));
+        }
+        if(savings.stream().anyMatch(e -> e.getTypeSaving().equals("extraordinario")) ) {
+            Saving saving1 = savings.stream().filter( e -> e.getTypeSaving().equals("extraordinario")).findFirst().get();
+            textExtraordinary.setText(String.valueOf(saving1.getMount()));
+        }
+
     }
 
 }
