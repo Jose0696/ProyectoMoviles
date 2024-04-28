@@ -1,18 +1,16 @@
 package com.asodesunidos.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.Button;
-import android.view.View;
+
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.asodesunidos.R;
-import com.asodesunidos.dao.CrudDAO;
-import com.asodesunidos.entity.Customer;
+
 import com.asodesunidos.entity.Saving;
-import com.asodesunidos.tag.SavingType;
+
 
 import java.util.List;
 import java.util.UUID;
@@ -54,47 +52,35 @@ public class CustomerSavings extends SuperActivity {
         displaySavings (textChrist,  textScholar,   textMark, textExtraordinary);
 
 
-        savingChrist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edChrist = findViewById(R.id.montoNavidenoEditText);
-                montoNavideno = Integer.parseInt(edChrist.getText().toString());
+        savingChrist.setOnClickListener(v -> {
+            edChrist = findViewById(R.id.montoNavidenoEditText);
+            montoNavideno = Integer.parseInt(edChrist.getText().toString());
 
-                saveSaving("navidenno",montoNavideno,SavingType.NAVIDENO, generateRandomID());
+            saveSaving("navidenno",montoNavideno, generateRandomID());
 
 
-            }
         });
 
-        savingScholar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edScholar = findViewById(R.id.montoEscolarEditText);
-                montoEscolar = Integer.parseInt(edScholar.getText().toString());
+        savingScholar.setOnClickListener(v -> {
+            edScholar = findViewById(R.id.montoEscolarEditText);
+            montoEscolar = Integer.parseInt(edScholar.getText().toString());
 
-                saveSaving("escolar",montoEscolar,SavingType.ESCOLAR,generateRandomID());
+            saveSaving("escolar",montoEscolar,generateRandomID());
 
-            }
         });
 
-        savingMark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edMark = findViewById(R.id.montoMarchamoEditText);
-                montoMarchamo = Integer.parseInt(edMark.getText().toString());
+        savingMark.setOnClickListener(v -> {
+            edMark = findViewById(R.id.montoMarchamoEditText);
+            montoMarchamo = Integer.parseInt(edMark.getText().toString());
 
-                saveSaving("marchamo",montoMarchamo,SavingType.MARCHAMO,generateRandomID());
-            }
+            saveSaving("marchamo",montoMarchamo,generateRandomID());
         });
 
-        savingExtraordinary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edExtraordinary = findViewById(R.id.montoExtraordinarioEditText);
-                montoExtraordinario = Integer.parseInt(edExtraordinary.getText().toString());
+        savingExtraordinary.setOnClickListener(v -> {
+            edExtraordinary = findViewById(R.id.montoExtraordinarioEditText);
+            montoExtraordinario = Integer.parseInt(edExtraordinary.getText().toString());
 
-                saveSaving("extraordinario",montoExtraordinario,SavingType.EXTRAORDINARIO,generateRandomID());
-            }
+            saveSaving("extraordinario",montoExtraordinario,generateRandomID());
         });
 
 
@@ -109,61 +95,11 @@ public class CustomerSavings extends SuperActivity {
         int randomID = (int) mostSignificantBits;
         return randomID;
     }
-    private void showCouta(SavingType typeSaving){
-        EditText editText = null;
-        TextView textView = null;
-
-        switch (typeSaving) {
-            case NAVIDENO:
-                editText = edChrist;
-                textView = textChrist;
-                break;
-            case ESCOLAR:
-                editText = edScholar;
-                textView = textScholar;
-                break;
-            case MARCHAMO:
-                editText = edMark;
-                textView = textMark;
-                break;
-            case EXTRAORDINARIO:
-                editText = edExtraordinary;
-                textView = textExtraordinary;
-                break;
-        }
-
-        String montoStr = editText.getText().toString().trim();
-        if (!montoStr.isEmpty()) {
-            int monto = Integer.parseInt(montoStr);
-            if (monto >= 5000) {
-                textView.setText(String.format("%s: Cuota %d", typeSaving.getDisplayName(), monto));
-
-                switch (typeSaving) {
-                    case NAVIDENO:
-                        montoNavideno = monto;
-                        break;
-                    case ESCOLAR:
-                        montoEscolar = monto;
-                        break;
-                    case MARCHAMO:
-                        montoMarchamo = monto;
-                        break;
-                    case EXTRAORDINARIO:
-                        montoExtraordinario = monto;
-                        break;
-                }
-            } else {
-                editText.setError("Monto mínimo: 5000 colones");
-            }
-        } else {
-            editText.setError("Ingrese un monto válido");
-        }
-
-    }
 
 
 
-    private void saveSaving(String savingType, double amount, SavingType typesave, int id) {
+
+    private void saveSaving(String savingType, double amount, int id) {
         try {
 
             List<Saving> savings = database().getSavingDAO().findAll().stream().filter(e ->
@@ -180,12 +116,12 @@ public class CustomerSavings extends SuperActivity {
            // showCouta(typesave);
         } catch (NumberFormatException e) {
 
-            e.printStackTrace();
+
 
             showToast("Error al ingresar el monto" + savingType);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            showToast("Error en el sistema");
         }
     }
 
