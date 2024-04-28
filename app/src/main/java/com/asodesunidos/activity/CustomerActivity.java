@@ -4,8 +4,11 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.asodesunidos.R;
@@ -17,17 +20,10 @@ import java.util.Date;
 import java.util.List;
 
 public class CustomerActivity extends SuperActivity {
-
-    TextView dateEdt;
-    TextView name;
-    TextView idCard;
-    TextView phone;
-    TextView salary;
-    TextView civilState;
-    TextView addressTxt;
-
+    TextView dateEdt, name, idCard, phone, salary, civilState, addressTxt;
+    Spinner civilStateSpinner;
+    String[] tiposPrestamo = {"Soltero/a", "Unión Libre", "Casado/a", "Separado/a", "Divorciado/a", "Viudo/a"};
     Button addCustomer;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,28 +37,39 @@ public class CustomerActivity extends SuperActivity {
         civilState = findViewById(R.id.civilStateTxt);
         addressTxt = findViewById(R.id.addressTxt);
 
-        addCustomer = findViewById(R.id.buttonAddCustomer);
-        // on below line we are initializing our variables.
-        dateEdt = findViewById(R.id.dateTxt);
+        // Spinner y adapter para tipos de préstamo
+        civilStateSpinner = findViewById(R.id.civilStateSpinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, tiposPrestamo);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        civilStateSpinner.setAdapter(adapter);
 
-        // on below line we are adding click listener
-        // for our pick date button
+        civilStateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Cuando se selecciona un estado civil en el Spinner, actualiza el TextView
+                String selectedCivilState = tiposPrestamo[position];
+                civilState.setText(selectedCivilState);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Manejar la situación cuando no se selecciona nada en el Spinner
+            }
+        });
+
+        addCustomer = findViewById(R.id.buttonAddCustomer);
+        dateEdt = findViewById(R.id.dateTxt);
         dateEdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // on below line we are getting
-                // the instance of our calendar.
                 final Calendar c = Calendar.getInstance();
 
-                // on below line we are getting
-                // our day, month and year.
                 int year = c.get(Calendar.YEAR);
                 int month = c.get(Calendar.MONTH);
                 int day = c.get(Calendar.DAY_OF_MONTH);
 
-                // on below line we are creating a variable for date picker dialog.
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        // on below line we are passing context.
+
                         CustomerActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
@@ -73,11 +80,7 @@ public class CustomerActivity extends SuperActivity {
 
                             }
                         },
-                        // on below line we are passing year,
-                        // month and day for selected date in our date picker.
                         year, month, day);
-                // at last we are calling show to
-                // display our date picker dialog.
                 datePickerDialog.getDatePicker().setMaxDate(new Date().getTime());
                 datePickerDialog.show();
             }

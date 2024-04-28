@@ -83,15 +83,24 @@
             android:minHeight="48dp"
             android:autofillHints="" />
 
-        <EditText
+        <TextView
             android:id="@+id/civilStateTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints=""
             android:ems="10"
             android:hint="@string/estadoCivil"
             android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:autofillHints=""
+            tools:ignore="TextViewEdits" />
+
+        <Spinner
+            android:id="@+id/civilStateSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:minHeight="48dp"
+            android:spinnerMode="dropdown" />
 
         <EditText
             android:id="@+id/addressTxt"

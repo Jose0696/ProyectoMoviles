@@ -22,36 +22,18 @@ public class AddLoanActivity extends SuperActivity {
 
     String[] plazosPrestamo = {"3 años", "5 años", "10 años"};
 
-    Spinner tiposPrestamoSpinner;
-    Spinner plazosPrestamoSpinner;
-
+    Spinner tiposPrestamoSpinner, plazosPrestamoSpinner;
     //Buttons
 
-    Button calcularBtn;
-    Button buscarCedulaBtn;
-    Button agregarPrestamoBtn;
-
+    Button calcularBtn, buscarCedulaBtn, agregarPrestamoBtn;
 
     // Texview
-
-    TextView cedulaTv;
-    TextView nombreClienteTv;
-    TextView salarioClienteTv;
-    TextView salarioMaximoTv;
-    TextView cuotaCalculadaTv;
-
-    TextView montoPrestarTv;
+    TextView cedulaTv, nombreClienteTv,salarioClienteTv,salarioMaximoTv, cuotaCalculadaTv, montoPrestarTv;
 
     double salarioMax;
-    int idCliente;
+    int idCliente, periodo;
 
-    int periodo;
-
-    float montoTotal;
-
-    float porcentaje;
-
-    float cuota;
+    float montoTotal, porcentaje, cuota;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

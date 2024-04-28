@@ -5,29 +5,27 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.asodesunidos.R;
 import com.asodesunidos.entity.Customer;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
 public class CustomerInformationActivity extends SuperActivity {
-
-
     int userId;
 
-    TextView dateEdt;
-    TextView name;
-    TextView idCard; //No modificar
-    TextView phone;
-    TextView salary;
-    TextView civilState;
-    TextView addressTxt;
+    TextView dateEdt,name, idCard, phone, salary, civilState, addressTxt;
 
+    Spinner civilStateSpinner;
+    String[] tiposPrestamo = {"Soltero/a", "Unión Libre", "Casado/a", "Separado/a", "Divorciado/a", "Viudo/a"};
     Button updateCustomer;
 
     @Override
@@ -43,6 +41,26 @@ public class CustomerInformationActivity extends SuperActivity {
         salary = findViewById(R.id.salaryTxt);
         civilState = findViewById(R.id.civilStateTxt);
         addressTxt = findViewById(R.id.addressTxt);
+
+        // Spinner y adapter para tipos de préstamo
+        civilStateSpinner = findViewById(R.id.civilStateSpinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, tiposPrestamo);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        civilStateSpinner.setAdapter(adapter);
+
+        civilStateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Cuando se selecciona un estado civil en el Spinner, actualiza el TextView
+                String selectedCivilState = tiposPrestamo[position];
+                civilState.setText(selectedCivilState);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Manejar la situación cuando no se selecciona nada en el Spinner
+            }
+        });
 
         updateCustomer = findViewById(R.id.buttonUpdateCustomer);
         // on below line we are initializing our variables.
@@ -96,12 +114,15 @@ public class CustomerInformationActivity extends SuperActivity {
             salary.setText(String.format("%.0f", customer.getSalary()));
             phone.setText(customer.getPhoneNumber());
             dateEdt.setText(customer.getBirthdate());
-            civilState.setText(customer.getCivilStatus());
+            seleccionarEstadoCivil(customer.getCivilStatus());
             addressTxt.setText(customer.getDirection());
 
         }
     }
-
+    private void seleccionarEstadoCivil(String estadoCivil) {
+        int position = Arrays.asList(tiposPrestamo).indexOf(estadoCivil);
+        civilStateSpinner.setSelection(position);
+    }
     public void updateCustomer(View view){
         if(validarCampos()) {
             Customer cusUpdate = new Customer();

@@ -12,32 +12,22 @@ import android.widget.TextView;
 import com.asodesunidos.R;
 
 public class CustomerCalcCuotaActivity extends SuperActivity {
-
-
     // Spinners
     String[] tiposPrestamo = {"Hipotecario", "Educación", "Personal", "Viajes"};
 
     String[] plazosPrestamo = {"3 años", "5 años", "10 años"};
 
-    Spinner tiposPrestamoSpinner;
-    Spinner plazosPrestamoSpinner;
+    Spinner tiposPrestamoSpinner, plazosPrestamoSpinner;
 
     //Buttons
 
     Button calcularBtn;
 
     // Texview
-
-
-    TextView cuotaCalculadaTv;
-    TextView montoPrestarTv;
-
+    TextView cuotaCalculadaTv, montoPrestarTv;
 
     int periodo;
-
-    float montoTotal;
-
-    float porcentaje;
+    float montoTotal, porcentaje;
 
 
 
