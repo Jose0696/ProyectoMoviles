@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
+    android:background="@color/white"
     tools:context=".activity.CustomerInformationActivity">
 
     <LinearLayout
@@ -17,17 +17,17 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="62dp"
-            android:background="#015C56"
+            android:background="#9CE7E2"
             android:clickable="false"
             android:text="@string/tittle_informacionPersonal"
             android:textAlignment="viewStart"
-            android:textColor="#F1C9A0"
+            android:textColor="#490ABD"
             android:textSize="24sp" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="69dp"
-            android:background="#7A1414" />
+            android:background="#9A1E14" />
 
         <EditText
             android:id="@+id/nameTxt"
@@ -119,8 +119,8 @@
             android:id="@+id/buttonUpdateCustomer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#015C56"
-            android:backgroundTint="#015C56"
+            android:background="#9CE7E2"
+            android:backgroundTint="#9CE7E2"
             android:backgroundTintMode="add"
             android:onClick="updateCustomer"
             android:text="@string/action_actualizarCliente"

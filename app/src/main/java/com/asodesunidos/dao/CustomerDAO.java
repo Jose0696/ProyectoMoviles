@@ -9,7 +9,6 @@ import java.util.List;
 
 @Dao
 public interface CustomerDAO extends CrudDAO<Customer>{
-
     @Override
     @Query("SELECT * FROM customers")
     List<Customer> findAll();

@@ -12,24 +12,18 @@ import android.widget.TextView;
 import com.asodesunidos.R;
 
 public class CustomerCalcCuotaActivity extends SuperActivity {
-    // Spinners
     String[] tiposPrestamo = {"Hipotecario", "Educación", "Personal", "Viajes"};
 
     String[] plazosPrestamo = {"3 años", "5 años", "10 años"};
 
     Spinner tiposPrestamoSpinner, plazosPrestamoSpinner;
 
-    //Buttons
-
     Button calcularBtn;
 
-    // Texview
     TextView cuotaCalculadaTv, montoPrestarTv;
 
     int periodo;
     float montoTotal, porcentaje;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +46,6 @@ public class CustomerCalcCuotaActivity extends SuperActivity {
 
         calcularBtn = (Button) findViewById(R.id.btnCalcularCuota);
 
-        // Texview
-
         cuotaCalculadaTv = (TextView) findViewById(R.id.cuotaCalculada);
         montoPrestarTv = (TextView) findViewById(R.id.montoDeseadoCuota);
 
@@ -72,7 +64,6 @@ public class CustomerCalcCuotaActivity extends SuperActivity {
             int numeroCuotas = numeroCuotasCalc(view);
 
             cuota = (float) ((montoPrestamo * interesMensual) / (1-Math.pow(1+interesMensual,-numeroCuotas)));
-
 
             String stringdouble= Float.toString(cuota);
 

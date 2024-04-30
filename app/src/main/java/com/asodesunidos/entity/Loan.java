@@ -19,7 +19,7 @@ public class Loan {
 
     @ColumnInfo (name = "loanType")
     @NonNull
-    private String loantype; // Hipotecario - Educacion - Personal - Viajes
+    private String loantype;
 
     @ColumnInfo (name = "customerId")
     @NonNull
@@ -31,11 +31,11 @@ public class Loan {
 
     @ColumnInfo (name = "period")
     @NonNull
-    private int period; // 3 - 5 - 10
+    private int period;
 
     @ColumnInfo (name = "percentage")
     @NonNull
-    private float percentage;  //Hipotecario = 7.5% - Educacion = 8% - Personal = 10% - Viajes = 12%
+    private float percentage;
 
     @ColumnInfo (name = "cuota")
     private float cuota;

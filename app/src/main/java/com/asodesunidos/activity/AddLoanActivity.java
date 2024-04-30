@@ -17,17 +17,14 @@ import java.util.List;
 
 public class AddLoanActivity extends SuperActivity {
 
-    // Spinners
     String[] tiposPrestamo = {"Hipotecario", "Educación", "Personal", "Viajes"};
 
     String[] plazosPrestamo = {"3 años", "5 años", "10 años"};
 
     Spinner tiposPrestamoSpinner, plazosPrestamoSpinner;
-    //Buttons
 
     Button calcularBtn, buscarCedulaBtn, agregarPrestamoBtn;
 
-    // Texview
     TextView cedulaTv, nombreClienteTv,salarioClienteTv,salarioMaximoTv, cuotaCalculadaTv, montoPrestarTv;
 
     double salarioMax;
@@ -54,20 +51,17 @@ public class AddLoanActivity extends SuperActivity {
 
 
         calcularBtn = (Button) findViewById(R.id.btnCalcular);
-         buscarCedulaBtn = (Button) findViewById(R.id.searchIdCard);
-         agregarPrestamoBtn = (Button) findViewById(R.id.btnAgregarPrestamo);
+        buscarCedulaBtn = (Button) findViewById(R.id.searchIdCard);
+        agregarPrestamoBtn = (Button) findViewById(R.id.btnAgregarPrestamo);
 
 
-        // Texview
-
-         cedulaTv = (TextView) findViewById(R.id.idCard);
-         nombreClienteTv = (TextView) findViewById(R.id.customerName);
-         salarioClienteTv = (TextView) findViewById(R.id.customerSalary);
-         salarioMaximoTv = (TextView) findViewById(R.id.maxSalary);
-         cuotaCalculadaTv = (TextView) findViewById(R.id.cuotaCalculada);
+        cedulaTv = (TextView) findViewById(R.id.idCard);
+        nombreClienteTv = (TextView) findViewById(R.id.customerName);
+        salarioClienteTv = (TextView) findViewById(R.id.customerSalary);
+        salarioMaximoTv = (TextView) findViewById(R.id.maxSalary);
+        cuotaCalculadaTv = (TextView) findViewById(R.id.cuotaCalculada);
         montoPrestarTv = (TextView) findViewById(R.id.montoDeseado);
     }
-
 
     @SuppressLint("DefaultLocale")
     public void searchUser(View view){
@@ -96,7 +90,6 @@ public class AddLoanActivity extends SuperActivity {
         return (float) (salario * 0.45);
     }
 
-
     @SuppressLint("DefaultLocale")
     public void calcularCuota(View view){
         if(validarCalcular()){
@@ -115,7 +108,6 @@ public class AddLoanActivity extends SuperActivity {
             this.cuota = cuota;
         }
     }
-
 
     public void agregarPrestamoCliente(View view){
 
@@ -200,7 +192,6 @@ public class AddLoanActivity extends SuperActivity {
         }
         return flag;
     }
-
 
     private boolean validarCampos(View view){
         if(cedulaTv.getText().toString().isEmpty()) {

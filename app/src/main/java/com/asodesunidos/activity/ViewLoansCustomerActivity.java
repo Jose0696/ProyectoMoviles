@@ -33,19 +33,15 @@ public class ViewLoansCustomerActivity extends SuperActivity {
 
         loansList.get(0);
 
-        // Obtener una referencia al TableLayout en el archivo XML
         TableLayout tableLayout = findViewById(R.id.table_layout);
 
-        // Iterar a través de la lista de préstamos
         if(loansList.size() != 0) {
 
 
             for (Loan prestamo : loansList) {
 
-                // Crear una nueva fila de tabla
                 TableRow tableRow = new TableRow(this);
 
-                // Crear TextViews para cada atributo del préstamo
                 TextView loanTypeTextView = new TextView(this);
                 loanTypeTextView.setText(prestamo.getLoantype());
                 tableRow.addView(loanTypeTextView);
@@ -68,11 +64,9 @@ public class ViewLoansCustomerActivity extends SuperActivity {
                 cuotaTextView.setText(String.valueOf(prestamo.getCuota()));
                 tableRow.addView(cuotaTextView);
 
-                // Crear un botón para realizar un pago
                 Button pagarButton = new Button(this);
                 pagarButton.setText(R.string.pagar);
 
-                // Deshabilitar el botón de pagar si el monto es 0
                 if (prestamo.getTotalCredit() == 0) {
                     pagarButton.setEnabled(false);
                     pagarButton.setBackgroundColor(Color.GRAY);
@@ -80,12 +74,9 @@ public class ViewLoansCustomerActivity extends SuperActivity {
                     pagarButton.setEnabled(true);
                 }
 
-
-                // Obtener la posición del TableRow
                 int position = rowCount;
                 rowCount++;
 
-                // Agregar una etiqueta al botón con la posición del TableRow
                 pagarButton.setTag(position);
 
                 pagarButton.setOnClickListener(new View.OnClickListener() {
@@ -93,10 +84,7 @@ public class ViewLoansCustomerActivity extends SuperActivity {
                     public void onClick(View v) {
                         int rowPosition = (int) v.getTag();
 
-                        // Acceder a la fila correspondiente en la lista de préstamos
                         Loan prestamo = loansList.get(rowPosition);
-
-                        // Código para realizar un pago
 
                         if (prestamo.getTotalCredit() > 0) {
                             prestamo.setTotalCredit(prestamo.getTotalCredit() - prestamo.getCuota());
@@ -108,9 +96,8 @@ public class ViewLoansCustomerActivity extends SuperActivity {
                         showToast("Se realizó el pago con éxito");
                     }
                 });
-                tableRow.addView(pagarButton);
 
-                // Agregar la fila a la tabla
+                tableRow.addView(pagarButton);
                 tableLayout.addView(tableRow);
             }
         }else{

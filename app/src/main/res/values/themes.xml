@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.AsoDesUnidos" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#015C56</item>
-        <item name="colorPrimaryVariant">#F5812B</item>
-        <item name="colorOnPrimary">#F1C9A0</item>
+        <item name="colorPrimary">#9CE7E2</item>
+        <item name="colorPrimaryVariant">#490ABD</item>
+        <item name="colorOnPrimary">#9A1E14</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/red_100</item>

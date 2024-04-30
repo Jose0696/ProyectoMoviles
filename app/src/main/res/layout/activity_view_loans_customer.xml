@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
+    android:background="@color/white"
     tools:context=".activity.ViewLoansCustomerActivity">
 
     <HorizontalScrollView
@@ -21,7 +21,6 @@
             android:layout_height="wrap_content"
             android:stretchColumns="*">
 
-            <!-- Encabezado de la tabla -->
             <TableRow>
 
                 <TextView
@@ -53,8 +52,6 @@
                     android:text=""
                     android:padding="8dp" />
             </TableRow>
-
-            <!-- Agregue filas dinámicamente aquí -->
 
         </TableLayout>
 

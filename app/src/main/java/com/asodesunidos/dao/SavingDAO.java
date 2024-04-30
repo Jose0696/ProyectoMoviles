@@ -9,7 +9,6 @@ import java.util.List;
 
 @Dao
 public interface SavingDAO extends CrudDAO<Saving>{
-
     @Query("SELECT * FROM savings where customerId = :customerId")
     List<Saving> find(int customerId);
 

@@ -9,7 +9,6 @@ import java.util.List;
 
 @Dao
 public interface UserDAO extends CrudDAO<User> {
-
     @Override
     @Query("SELECT * FROM users")
     List<User> findAll();

@@ -13,7 +13,6 @@ import com.asodesunidos.entity.Customer;
 import com.asodesunidos.entity.User;
 
 public class Login extends SuperActivity {
-
     private TextView usernameTxtView = null;
     private TextView passwordTxtView = null;
     private Button loginBtn = null;

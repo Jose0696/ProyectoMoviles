@@ -13,14 +13,14 @@ public class Saving {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "savingId")
     @NonNull
-    private int savingId; // 1
+    private int savingId;
     @ColumnInfo (name = "typeSaving")
     @NonNull
-    private String typeSaving; // navideno, marchamo
+    private String typeSaving;
 
     @ColumnInfo (name = "customerId")
     @NonNull
-    private int customerId; //
+    private int customerId;
     @ColumnInfo (name = "mount")
     @NonNull
     private double mount;

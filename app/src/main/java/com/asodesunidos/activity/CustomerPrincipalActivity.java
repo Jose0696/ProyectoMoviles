@@ -16,12 +16,9 @@ import androidx.appcompat.app.AlertDialog;
 import java.util.List;
 
 public class CustomerPrincipalActivity extends SuperActivity {
-
     int userId;
     String userName;
     TextView welcome;
-
-    //Buttons
 
     Button personalInfo;
 

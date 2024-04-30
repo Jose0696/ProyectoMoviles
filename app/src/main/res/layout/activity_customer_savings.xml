@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
+    android:background="@color/white"
     tools:context=".activity.CustomerSavings">
 
     <RelativeLayout
@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <!-- Ahorro Navideño -->
         <TextView
             android:id="@+id/navidenoTextView"
             android:layout_width="match_parent"
@@ -41,7 +40,6 @@
             android:text="@string/guardar_ahorro_navide_o"
             android:layout_marginTop="16dp" />
 
-        <!-- Ahorro Escolar -->
         <TextView
             android:id="@+id/escolarTextView"
             android:layout_width="match_parent"
@@ -71,7 +69,6 @@
             android:text="@string/guardar_ahorro_escolar"
             android:layout_marginTop="16dp" />
 
-        <!-- Ahorro Marchamo -->
         <TextView
             android:id="@+id/marchamoTextView"
             android:layout_width="match_parent"
@@ -101,7 +98,6 @@
             android:text="@string/guardar_ahorro_marchamo"
             android:layout_marginTop="16dp" />
 
-        <!-- Ahorro Extraordinario -->
         <TextView
             android:id="@+id/extraordinarioTextView"
             android:layout_width="match_parent"
@@ -130,7 +126,6 @@
             android:layout_centerHorizontal="true"
             android:text="@string/guardar_ahorro_extraordinario"
             android:layout_marginTop="16dp" />
-
 
     </RelativeLayout>
 
