@@ -94,24 +94,37 @@ public class CustomerActivity extends SuperActivity {
     }
 
 
-    public void createCustomer(View view){
+    public void createCustomer(View view) {
         try {
-            if (searchIdCard()) {
-                long result = createLoginForUser(view);
-                Customer customer = new Customer(Integer.parseInt(String.valueOf(result)), idCard.getText().toString(),
-                        name.getText().toString(), Double.parseDouble(salary.getText().toString()), phone.getText().toString(), dateEdt.getText().toString(),
-                        civilState.getText().toString(), addressTxt.getText().toString());
-                database().getCustomerDAO().insert(customer);
+            if (areFieldsNotEmpty()) {
+                if (searchIdCard()) {
+                    long result = createLoginForUser(view);
+                    Customer customer = new Customer(Integer.parseInt(String.valueOf(result)), idCard.getText().toString(),
+                            name.getText().toString(), Double.parseDouble(salary.getText().toString()), phone.getText().toString(), dateEdt.getText().toString(),
+                            civilState.getText().toString(), addressTxt.getText().toString());
+                    database().getCustomerDAO().insert(customer);
 
-                showToast("Se agregó el nuevo cliente");
+                    showToast("Se agregó el nuevo cliente");
+                } else {
+                    showToast("No se pudo agregar el nuevo cliente");
+                }
             } else {
-                showToast("No se pudo agreagar el nuevo cliente");
+                showToast("Por favor, complete todos los campos.");
             }
-        }catch (Exception exception) {
-            showToast("No se pudo agreagar el nuevo cliente");
+        } catch (Exception exception) {
+            showToast("No se pudo agregar el nuevo cliente");
         }
     }
 
+    private boolean areFieldsNotEmpty() {
+        return !idCard.getText().toString().isEmpty()
+                && !name.getText().toString().isEmpty()
+                && !salary.getText().toString().isEmpty()
+                && !phone.getText().toString().isEmpty()
+                && !dateEdt.getText().toString().isEmpty()
+                && !civilState.getText().toString().isEmpty()
+                && !addressTxt.getText().toString().isEmpty();
+    }
 
     public boolean searchIdCard(){
         List<Customer> customers = database().getCustomerDAO().findAll();
